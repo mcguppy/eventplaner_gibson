@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/WEB-INF/templates/template.xhtml">
+	<ui:define name="content">
+		<h1><h:outputText value="Message : #{helloBean.message}" /></h1>
+		<div class="panel">
+			<h1>Data Entry Test</h1>			
+			<h:form styleClass="contentBox">
+				<div class="property">
+					<label for="firstName" class="formCaption">First Name</label> 
+			  		<h:inputText value="#{helloBean.person.firstName}" id="firstName" /> 
+		 	  		<h:message for="firstName" styleClass="errorMessage"/>
+				</div>
+			
+				<div class="property"> 
+			  		<label for="lastName" class="formCaption">Last Name</label>
+			  		<h:inputText value="#{helloBean.person.lastName}" id="lastName" />
+			  		<h:message for="lastName" styleClass="errorMessage"/>			 
+				</div>
+						  
+				<small>Try leaving fields blank or entering more than 24 characters</small><br />
+				<br/>
+				<h:commandButton action="#{helloBean.savePerson}" value="Add Person" />
+			</h:form>
+		</div>
+		
+		<div class="panel">
+			<h1>These people have already been added</h1>
+			<div class="contentBox">
+				<h:dataTable value="#{people}" var="v_person" styleClass="dataTable">
+					<h:column>
+						<f:facet name="header">Id</f:facet>
+						<h:outputText value="#{v_person.id}" />
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">First Name</f:facet>
+						<h:outputText value="#{v_person.firstName}" />
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">Last Name</f:facet>
+						<h:outputText value="#{v_person.lastName}" />
+					</h:column>
+				</h:dataTable>				
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>
