@@ -7,7 +7,7 @@ body {
 }
 
 #header {
-	height: 120px;
+	height: 70px;
 	border-bottom: 3px solid #c0c0c0;
 	background: #204080;
 	text-align: center;
@@ -17,7 +17,7 @@ body {
 }
 
 #header h1 {
-	padding-top: 24px;
+	padding-top: 16px;
 	font-size: 250%;
 }
 
@@ -55,7 +55,15 @@ body {
 #content {
 	min-height: 320px;
 	font-size: 120%;
-	width: 720px;
+	width: 944px;
+}
+
+#navigation {
+
+}
+
+#messages {
+
 }
 
 #footer {

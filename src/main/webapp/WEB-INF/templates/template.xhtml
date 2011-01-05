@@ -14,8 +14,16 @@
                 <h1>eventplaner</h1>
             </h:panelGroup>
             <h:panelGroup id="container" layout="block">
+                <!--
                 <h:panelGroup id="sidebar" layout="block">
                     <h1>Sidebar</h1> Content for the sidebar goes here
+                </h:panelGroup>
+                -->
+                <h:panelGroup id="navigation" layout="block">
+                    <ui:insert name="navigation">Navigation</ui:insert>
+                </h:panelGroup>
+                <h:panelGroup id="messages" layout="block">
+                    <ui:insert name="messages">Message Panel</ui:insert>
                 </h:panelGroup>
                 <h:panelGroup id="content" layout="block">
                     <ui:insert name="content">Main Content</ui:insert>
