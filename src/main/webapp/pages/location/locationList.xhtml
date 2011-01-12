@@ -6,14 +6,12 @@
                 template="/WEB-INF/templates/template.xhtml">
     <ui:define name="navigation">
         <h:form>
-            <h:commandButton action="/pages/home.xhtml" value="#{labels.buttonMainIndex}" immediate="true" />
+            <h:commandButton value="#{labels.buttonMainIndex}" action="/pages/home.xhtlm" immediate="true" />
             <h:outputText value=" "/>
-            <h:commandButton action="/pages/staffMember/staffMemberList.xhtml" value="#{labels.buttonStaffMemberList}"/>
+            <h:commandButton action="/pages/staffMember/staffMemberList.jsf" immediate="true" value="#{labels.buttonStaffMemberList}"/>
             <h:outputText value=" "/>
-            <h:commandButton action="/pages/location/locationList.xhtml" value="#{labels.buttonLocationList}"/>
         </h:form>
     </ui:define>
     <ui:define name="content">
-        Hallo World!
     </ui:define>
 </ui:composition>

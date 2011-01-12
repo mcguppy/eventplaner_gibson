@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                template="/WEB-INF/templates/template.xhtml">
+    <ui:define name="navigation">
+        <h:form>
+            <h:commandButton value="#{labels.buttonMainIndex}" action="/pages/home.xhtlm" immediate="true" />
+            <h:outputText value=" "/>
+            <h:commandButton action="/pages/location/locationList.jsf" immediate="true" value="#{labels.buttonLocationList}"/>
+            <h:outputText value=" "/>
+        </h:form>
+    </ui:define>
+    <ui:define name="content">
+        <div class="panel">
+            <div class="contentBox">
+                <h:dataTable value="#{staffMembers}" var="v_staffMember" styleClass="dataTable">
+                    <h:column>
+                        <f:facet name="header">Id</f:facet>
+                        <h:outputText value="#{v_staffMmber.id}" />
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">First Name</f:facet>
+                        <h:outputText value="#{v_staffMember.firstName}" />
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">Last Name</f:facet>
+                        <h:outputText value="#{v_staffMember.lastName}" />
+                    </h:column>
+                </h:dataTable>
+            </div>
+        </div>
+    </ui:define>
+</ui:composition>
