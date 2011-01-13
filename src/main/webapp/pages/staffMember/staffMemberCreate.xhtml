@@ -18,17 +18,23 @@
                      listener="#{staffMemberController.initConversation}" />
         </f:metadata>
         <h:form>
-            <h:outputText value="First Name" styleClass="caption" />
-            <div class="value"><h:inputText
-                    value="#{staffMemberController.instance.firstName}" id="firstName" /> <h:message
-                    for="firstName" styleClass="errorMessage" />
+            <h:outputLabel value="#{labels.labelStaffMemberTitle}" for="title" />
+            <div class="value">
+                <h:selectOneMenu id="title" value="#{staffMemberController.instance.title}" title="#{labels.labelStaffMemberTitle}" validatorMessage="#{msgs.validationFieldNotNull}">
+                    <f:selectItems value="#{staffMemberController.titlesAvailableSelectOne}"/>
+                </h:selectOneMenu>
             </div>
 
-            <h:commandButton value="Save" action="#{staffMemberController.save}"
-                             style="margin-right : 8px" />
+            <h:outputText value="First Name" styleClass="caption" />
+            <div class="value">
+                <h:inputText value="#{staffMemberController.instance.firstName}" id="firstName" />
+                <h:message for="firstName" styleClass="errorMessage" />
+            </div>
+
+            <h:commandButton value="Save" action="#{staffMemberController.save}"/>
+            <h:outputText value=" "/>
             <h:commandButton value="Cancel" action="#{staffMemberController.cancel}"
                              immediate="true" />
-            <h:commandButton value="Delete" action="#{staffMemberController.delete}" style="margin-left : 240px"/>
         </h:form>
     </ui:define>
 </ui:composition>
