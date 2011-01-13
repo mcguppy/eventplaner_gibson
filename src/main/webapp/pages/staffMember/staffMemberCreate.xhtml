@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                template="/WEB-INF/templates/template.xhtml">
+    <ui:define name="navigation">
+        <h:form>
+            <h:commandButton value="#{labels.buttonMainIndex}" action="/pages/home.xhtlm" immediate="true" />
+            <h:outputText value=" "/>
+            <h:commandButton action="/pages/location/locationList.jsf" immediate="true" value="#{labels.buttonLocationList}"/>
+        </h:form>
+    </ui:define>
+    <ui:define name="content">
+        <f:metadata>
+            <f:viewParam name="id" value="#{staffMemberController.id}" />
+            <f:event type="preRenderView"
+                     listener="#{staffMemberController.initConversation}" />
+        </f:metadata>
+        <h:form>
+            <h:outputText value="First Name" styleClass="caption" />
+            <div class="value"><h:inputText
+                    value="#{staffMemberController.instance.firstName}" id="firstName" /> <h:message
+                    for="firstName" styleClass="errorMessage" />
+            </div>
+
+            <h:commandButton value="Save" action="#{staffMemberController.save}"
+                             style="margin-right : 8px" />
+            <h:commandButton value="Cancel" action="#{staffMemberController.cancel}"
+                             immediate="true" />
+            <h:commandButton value="Delete" action="#{staffMemberController.delete}" style="margin-left : 240px"/>
+        </h:form>
+    </ui:define>
+</ui:composition>
