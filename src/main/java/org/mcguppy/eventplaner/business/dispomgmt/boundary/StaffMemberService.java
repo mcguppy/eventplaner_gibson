@@ -7,11 +7,10 @@ import java.util.ResourceBundle;
 import javax.ejb.Stateless;
 import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
-import javax.enterprise.inject.Produces;
-import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.PersistenceContext;
+import javax.validation.ConstraintViolationException;
 import org.mcguppy.eventplaner.business.dispomgmt.domain.Shift;
 import org.mcguppy.eventplaner.business.dispomgmt.domain.StaffMember;
 

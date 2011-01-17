@@ -22,14 +22,19 @@
             <var>settings</var>
         </resource-bundle>
     </application>
-<!--
+
     <navigation-rule>
-        <from-view-id>pages/home.xhtml</from-view-id>
+        <from-view-id>/pages/staffMember/staffMemberCreate.xhtml</from-view-id>
         <navigation-case>
-            <from-outcome>staffMemberList</from-outcome>
-            <to-view-id>pages/staffMember/staffMemberList.xhtml</to-view-id>
+            <from-outcome>saved</from-outcome>
+            <to-view-id>/pages/staffMember/staffMemberList.xhtml</to-view-id>
+            <redirect include-view-params="true" />
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>cancelled</from-outcome>
+            <to-view-id>/pages/staffMember/staffMemberList.xhtml</to-view-id>
             <redirect include-view-params="true" />
         </navigation-case>
     </navigation-rule>
--->
+
 </faces-config>

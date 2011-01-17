@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.enterprise.context.Conversation;
+import javax.enterprise.context.ConversationScoped;
 import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -11,6 +12,7 @@ import org.mcguppy.eventplaner.business.dispomgmt.boundary.StaffMemberService;
 import org.mcguppy.eventplaner.business.dispomgmt.domain.StaffMember;
 
 @Named
+@ConversationScoped
 public class StaffMemberController implements Serializable {
 
     @EJB

@@ -22,8 +22,8 @@ import org.hibernate.validator.constraints.Email;
 @Entity
 @Table(name = "staffmember")
 public class StaffMember extends MyEntityBase implements Comparable {
-
     @NotNull
+    @Size(min = 1)
     private String title;
     @NotNull
     @Size(min = 2)
