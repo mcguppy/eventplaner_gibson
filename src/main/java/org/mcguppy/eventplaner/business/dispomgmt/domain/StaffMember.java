@@ -22,26 +22,26 @@ import org.hibernate.validator.constraints.Email;
 @Entity
 @Table(name = "staffmember")
 public class StaffMember extends MyEntityBase implements Comparable {
-    @NotNull
-    @Size(min = 1)
+    @NotNull(message="{validationFieldNotNull}")
+    @Size(min = 1, message="{validationFieldMin1}")
     private String title;
-    @NotNull
-    @Size(min = 2)
+    @NotNull(message="{validationFieldNotNull}")
+    @Size(message="{validationFieldMin2}", min = 2 )
     private String firstName;
-    @NotNull
-    @Size(min = 2)
+    @NotNull(message="{validationFieldNotNull}")
+    @Size(min = 2, message="{validationFieldMin2}")
     private String lastName;
     private String street;
-    @NotNull
-    @Pattern(regexp = "\\d{4}")
+    @NotNull(message="{validationFieldNotNull}")
+    @Pattern(regexp = "\\d{4}", message="{validationZip}")
     private String zip;
-    @NotNull
-    @Size(min = 2)
+    @NotNull(message="{validationFieldNotNull}")
+    @Size(min = 2, message="{validationFieldMin2}")
     private String city;
     private String phoneNr;
     private String cellPhoneNr;
     //@Pattern(regexp="^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")
-    @Email
+    @Email(message="{validationMailAddress}")
     private String mailAddress;
     @ManyToMany(fetch = FetchType.LAZY, mappedBy = "staffMembers")
     private Collection<Shift> shifts;
