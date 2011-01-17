@@ -21,14 +21,57 @@
             <h:outputLabel value="#{labels.labelStaffMemberTitle}" for="title" />
             <div class="value">
                 <h:selectOneMenu id="title" value="#{staffMemberController.instance.title}" title="#{labels.labelStaffMemberTitle}" validatorMessage="#{msgs.validationFieldNotNull}">
-                    <f:selectItems value="#{staffMemberController.titlesAvailableSelectOne}"/>
+                    <f:selectItem id="mrItem" itemLabel="Herr" itemValue="Herr" />
+                    <f:selectItem id="mrsItem" itemLabel="Frau" itemValue="Frau" />
                 </h:selectOneMenu>
             </div>
 
-            <h:outputText value="First Name" styleClass="caption" />
+            <h:outputText value="#{labels.labelStaffMemberFirstName}" styleClass="caption" />
             <div class="value">
                 <h:inputText value="#{staffMemberController.instance.firstName}" id="firstName" />
                 <h:message for="firstName" styleClass="errorMessage" />
+            </div>
+
+            <h:outputText value="#{labels.labelStaffMemberLastName}" styleClass="caption" />
+            <div class="value">
+                <h:inputText value="#{staffMemberController.instance.lastName}" id="lastName" />
+                <h:message for="lastName" styleClass="errorMessage" />
+            </div>
+
+            <h:outputText value="#{labels.labelStaffMemberStreet}" styleClass="caption" />
+            <div class="value">
+                <h:inputText value="#{staffMemberController.instance.street}" id="street" />
+                <h:message for="street" styleClass="errorMessage" />
+            </div>
+
+            <h:outputText value="#{labels.labelStaffMemberZip}" styleClass="caption" />
+            <div class="value">
+                <h:inputText value="#{staffMemberController.instance.zip}" id="zip" />
+                <h:message for="zip" styleClass="errorMessage" />
+            </div>
+
+            <h:outputText value="#{labels.labelStaffMemberCity}" styleClass="caption" />
+            <div class="value">
+                <h:inputText value="#{staffMemberController.instance.city}" id="city" />
+                <h:message for="city" styleClass="errorMessage" />
+            </div>
+
+            <h:outputText value="#{labels.labelStaffMemberMailAddress}" styleClass="caption" />
+            <div class="value">
+                <h:inputText value="#{staffMemberController.instance.mailAddress}" id="mailAddress" />
+                <h:message for="mailAddress" styleClass="errorMessage" />
+            </div>
+
+            <h:outputText value="#{labels.labelStaffMemberPhoneNr}" styleClass="caption" />
+            <div class="value">
+                <h:inputText value="#{staffMemberController.instance.phoneNr}" id="phoneNr" />
+                <h:message for="phoneNr" styleClass="errorMessage" />
+            </div>
+
+            <h:outputText value="#{labels.labelStaffMemberCellPhpneNr}" styleClass="caption" />
+            <div class="value">
+                <h:inputText value="#{staffMemberController.instance.cellPhoneNr}" id="cellPhoneNr" />
+                <h:message for="cellPhoneNr" styleClass="errorMessage" />
             </div>
 
             <h:commandButton value="Save" action="#{staffMemberController.save}"/>

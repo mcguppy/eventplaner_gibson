@@ -1,6 +1,8 @@
 package org.mcguppy.eventplaner.business.dispomgmt.domain;
 
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -20,27 +22,21 @@ import org.hibernate.validator.constraints.Email;
 @Entity
 @Table(name = "staffmember")
 public class StaffMember extends MyEntityBase implements Comparable {
-    
-    public enum Title {
 
-        Herr,
-        Frau;
-    }
     @NotNull
-    @Enumerated(EnumType.STRING)
-    private Title title;
+    private String title;
     @NotNull
-    @Size(min=2)
+    @Size(min = 2)
     private String firstName;
     @NotNull
-    @Size(min=2)
+    @Size(min = 2)
     private String lastName;
     private String street;
     @NotNull
-    @Pattern(regexp="\\d{4}")
+    @Pattern(regexp = "\\d{4}")
     private String zip;
     @NotNull
-    @Size(min=2)
+    @Size(min = 2)
     private String city;
     private String phoneNr;
     private String cellPhoneNr;
@@ -108,11 +104,11 @@ public class StaffMember extends MyEntityBase implements Comparable {
         this.street = street;
     }
 
-    public Title getTitle() {
+    public String getTitle() {
         return title;
     }
 
-    public void setTitle(Title title) {
+    public void setTitle(String title) {
         this.title = title;
     }
 
