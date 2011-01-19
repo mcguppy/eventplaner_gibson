@@ -30,14 +30,15 @@ public class StaffMember extends MyEntityBase implements Comparable {
     private String lastName;
     @Size(max = 50, message = "{sizeMax.error}")
     private String street;
-    @Pattern(regexp = "[0-9]*", message = "{zipCode.error}")
-    @Size(min = 4, max = 4, message = "{zipCode.error}")
+    @NotNull(message = "{notNull.error}")
+    @Pattern(regexp = "[0-9]{4}", message = "{zipCode.error}")
     private String zip;
     @NotNull(message = "{notNull.error}")
     @Size(min = 2, max = 50, message = "{sizeMinMax.error}")
     private String city;
     @Pattern(regexp = "[0-9]{3}[ ]?[0-9]{3}[ ]?[0-9]{2}[ ]?[0-9]{2}", message = "{phoneNumber.error}")
     private String phoneNr;
+    @Pattern(regexp = "[0-9]{3}[ ]?[0-9]{3}[ ]?[0-9]{2}[ ]?[0-9]{2}", message = "{phoneNumber.error}")
     private String cellPhoneNr;
     @Email(message = "{mailAddress.error}")
     private String mailAddress;

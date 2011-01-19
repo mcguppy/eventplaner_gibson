@@ -23,9 +23,11 @@
                     <ui:insert name="navigation">Navigation</ui:insert>
                 </h:panelGroup>
                 <h:panelGroup id="messages" layout="block">
-                    <h:panelGroup id="messagePanel" layout="block">
-                        <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
-                    </h:panelGroup>
+                    <ui:insert name="messages">
+                        <h:panelGroup id="messagePanel" layout="block">
+                            <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                        </h:panelGroup>
+                    </ui:insert>
                 </h:panelGroup>
                 <h:panelGroup id="content" layout="block">
                     <ui:insert name="content">Main Content</ui:insert>
