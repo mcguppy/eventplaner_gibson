@@ -22,7 +22,7 @@
             <h:panelGrid columns="3">
                 
                 <h:outputLabel value="#{labels.labelStaffMemberTitle}" for="title" />
-                <h:selectOneMenu id="title" value="#{staffMemberController.instance.title}" title="#{labels.labelStaffMemberTitle}" validatorMessage="#{msgs.validationFieldNotNull}">
+                <h:selectOneMenu id="title" value="#{staffMemberController.instance.title}" title="#{labels.labelStaffMemberTitle}" >
                     <f:selectItem  itemLabel="---" itemValue="" />
                     <f:selectItem  itemLabel="#{labels.labelStaffMemberTitleMr}" itemValue="#{labels.labelStaffMemberTitleMr}" />
                     <f:selectItem  itemLabel="#{labels.labelStaffMemberTitleMrs}" itemValue="#{labels.labelStaffMemberTitleMrs}" />

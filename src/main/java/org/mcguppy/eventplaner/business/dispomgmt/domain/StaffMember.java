@@ -1,11 +1,7 @@
 package org.mcguppy.eventplaner.business.dispomgmt.domain;
 
-import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
@@ -22,26 +18,28 @@ import org.hibernate.validator.constraints.Email;
 @Entity
 @Table(name = "staffmember")
 public class StaffMember extends MyEntityBase implements Comparable {
-    @NotNull(message="{validationFieldNotNull}")
-    @Size(min = 1, message="{validationFieldMin1}")
+
+    @NotNull(message = "{notNull.error}")
+    @Size(min = 1, message = "{sizeMin.error}")
     private String title;
-    @NotNull(message="{validationFieldNotNull}")
-    @Size(message="{validationFieldMin2}", min = 2 )
+    @NotNull(message = "{notNull.error}")
+    @Size(min = 2, max = 50, message = "{sizeMinMax.error}")
     private String firstName;
-    @NotNull(message="{validationFieldNotNull}")
-    @Size(min = 2, message="{validationFieldMin2}")
+    @NotNull(message = "{notNull.error}")
+    @Size(min = 2, max = 50, message = "{sizeMinMax.error}")
     private String lastName;
+    @Size(max = 50, message = "{sizeMax.error}")
     private String street;
-    @NotNull(message="{validationFieldNotNull}")
-    @Pattern(regexp = "\\d{4}", message="{validationZip}")
+    @Pattern(regexp = "[0-9]*", message = "{zipCode.error}")
+    @Size(min = 4, max = 4, message = "{zipCode.error}")
     private String zip;
-    @NotNull(message="{validationFieldNotNull}")
-    @Size(min = 2, message="{validationFieldMin2}")
+    @NotNull(message = "{notNull.error}")
+    @Size(min = 2, max = 50, message = "{sizeMinMax.error}")
     private String city;
+    @Pattern(regexp = "[0-9]{3}[ ]?[0-9]{3}[ ]?[0-9]{2}[ ]?[0-9]{2}", message = "{phoneNumber.error}")
     private String phoneNr;
     private String cellPhoneNr;
-    //@Pattern(regexp="^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")
-    @Email(message="{validationMailAddress}")
+    @Email(message = "{mailAddress.error}")
     private String mailAddress;
     @ManyToMany(fetch = FetchType.LAZY, mappedBy = "staffMembers")
     private Collection<Shift> shifts;
