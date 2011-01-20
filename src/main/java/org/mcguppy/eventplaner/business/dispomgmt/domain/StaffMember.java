@@ -6,6 +6,8 @@ import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
@@ -19,28 +21,27 @@ import org.hibernate.validator.constraints.Email;
 @Table(name = "staffmember")
 public class StaffMember extends MyEntityBase implements Comparable {
 
-    @NotNull(message = "{notNull.error}")
-    @Size(min = 1, message = "{sizeMin.error}")
+    @NotNull(message = "{org.mcguppy.constraints.NotNull.message}")
     private String title;
-    @NotNull(message = "{notNull.error}")
-    @Size(min = 2, max = 50, message = "{sizeMinMax.error}")
+    @NotNull(message = "{org.mcguppy.constraints.NotNull.message}")
+    @Size(min = 2, max = 50, message = "{org.mcguppy.constraints.Size.message}")
     private String firstName;
-    @NotNull(message = "{notNull.error}")
-    @Size(min = 2, max = 50, message = "{sizeMinMax.error}")
+    @NotNull(message = "{org.mcguppy.constraints.NotNull.message}")
+    @Size(min = 2, max = 50, message = "{org.mcguppy.constraints.Size.message}")
     private String lastName;
-    @Size(max = 50, message = "{sizeMax.error}")
+    @Size(max = 50, message = "{org.mcguppy.constraints.Size.Max.message}")
     private String street;
-    @NotNull(message = "{notNull.error}")
-    @Pattern(regexp = "[0-9]{4}", message = "{zipCode.error}")
+    @NotNull(message = "{org.mcguppy.constraints.NotNull.message}")
+    @Pattern(regexp = "[0-9]{4}", message = "{org.mcguppy.constraints.Zip.message}")
     private String zip;
-    @NotNull(message = "{notNull.error}")
-    @Size(min = 2, max = 50, message = "{sizeMinMax.error}")
+    @NotNull(message = "{org.mcguppy.constraints.NotNull.message}")
+    @Size(min = 2, max = 50, message = "{org.mcguppy.constraints.Size.message}")
     private String city;
-    @Pattern(regexp = "[0-9]{3}[ ]?[0-9]{3}[ ]?[0-9]{2}[ ]?[0-9]{2}", message = "{phoneNumber.error}")
+    @Pattern(regexp = "[0-9]{3}[ ]?[0-9]{3}[ ]?[0-9]{2}[ ]?[0-9]{2}", message = "{org.mcguppy.constraints.PhoneNumber.message}")
     private String phoneNr;
-    @Pattern(regexp = "[0-9]{3}[ ]?[0-9]{3}[ ]?[0-9]{2}[ ]?[0-9]{2}", message = "{phoneNumber.error}")
+    @Pattern(regexp = "[0-9]{3}[ ]?[0-9]{3}[ ]?[0-9]{2}[ ]?[0-9]{2}", message = "{org.mcguppy.constraints.PhoneNumber.message}")
     private String cellPhoneNr;
-    @Email(message = "{mailAddress.error}")
+    @Email(message = "{org.mcguppy.constraints.Mail.message}")
     private String mailAddress;
     @ManyToMany(fetch = FetchType.LAZY, mappedBy = "staffMembers")
     private Collection<Shift> shifts;
@@ -77,6 +78,10 @@ public class StaffMember extends MyEntityBase implements Comparable {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public String getName() {
+        return lastName + " " + firstName;
     }
 
     public String getMailAddress() {

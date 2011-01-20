@@ -29,7 +29,7 @@ public abstract class CrudBaseService<T> {
         getEntityManager().remove(getEntityManager().merge(entity));
     }
 
-    public T find(Long id) {
+    public T find(Integer id) {
         return getEntityManager().find(entityClass, id);
     }
 

@@ -4,14 +4,6 @@
                 xmlns:f="http://java.sun.com/jsf/core"
                 xmlns:h="http://java.sun.com/jsf/html"
                 template="/WEB-INF/templates/template.xhtml">
-    <ui:define name="navigation">
-        <h:form>
-            <h:commandButton value="#{labels.buttonMainIndex}" action="/pages/home.xhtlm" immediate="true" />
-            <h:outputText value=" "/>
-            <h:commandButton action="/pages/staffMember/staffMemberList.jsf" immediate="true" value="#{labels.buttonStaffMemberList}"/>
-            <h:outputText value=" "/>
-        </h:form>
-    </ui:define>
     <ui:define name="content">
     </ui:define>
 </ui:composition>

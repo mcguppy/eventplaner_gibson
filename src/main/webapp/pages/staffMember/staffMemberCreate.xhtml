@@ -4,13 +4,6 @@
                 xmlns:f="http://java.sun.com/jsf/core"
                 xmlns:h="http://java.sun.com/jsf/html"
                 template="/WEB-INF/templates/template.xhtml">
-    <ui:define name="navigation">
-        <h:form>
-            <h:commandButton value="#{labels.buttonMainIndex}" action="/pages/home.xhtlm" immediate="true" />
-            <h:outputText value=" "/>
-            <h:commandButton action="/pages/location/locationList.jsf" immediate="true" value="#{labels.buttonLocationList}"/>
-        </h:form>
-    </ui:define>
     <ui:define name="messages" /> <!-- no message panel here -->
     <ui:define name="content">
         <f:metadata>
@@ -30,44 +23,44 @@
                 </h:selectOneMenu>
                 <h:message for="title" styleClass="errorMessage" />
 
-                <h:outputText value="#{labels.labelStaffMemberFirstName}" styleClass="caption" />
+                <h:outputLabel for="firstName" value="#{labels.labelStaffMemberFirstName}" />
                 <h:inputText value="#{staffMemberController.instance.firstName}" id="firstName" />
                 <h:message for="firstName" styleClass="errorMessage" />
 
-                <h:outputText value="#{labels.labelStaffMemberLastName}" styleClass="caption" />
+                <h:outputLabel for="lastName" value="#{labels.labelStaffMemberLastName}" />
                 <h:inputText value="#{staffMemberController.instance.lastName}" id="lastName" />
                 <h:message for="lastName" styleClass="errorMessage" />
 
-                <h:outputText value="#{labels.labelStaffMemberStreet}" styleClass="caption" />
+                <h:outputLabel for="street" value="#{labels.labelStaffMemberStreet}" />
                 <h:inputText value="#{staffMemberController.instance.street}" id="street" />
                 <h:message for="street" styleClass="errorMessage" />
 
-                <h:outputText value="#{labels.labelStaffMemberZip}" styleClass="caption" />
+                <h:outputLabel for="zip" value="#{labels.labelStaffMemberZip}" />
                 <h:inputText value="#{staffMemberController.instance.zip}" id="zip" />
                 <h:message for="zip" styleClass="errorMessage" />
 
-                <h:outputText value="#{labels.labelStaffMemberCity}" styleClass="caption" />
+                <h:outputLabel for="city" value="#{labels.labelStaffMemberCity}" />
                 <h:inputText value="#{staffMemberController.instance.city}" id="city" />
                 <h:message for="city" styleClass="errorMessage" />
 
-                <h:outputText value="#{labels.labelStaffMemberMailAddress}" styleClass="caption" />
+                <h:outputLabel for="mailAddress" value="#{labels.labelStaffMemberMailAddress}" />
                 <h:inputText value="#{staffMemberController.instance.mailAddress}" id="mailAddress" />
                 <h:message for="mailAddress" styleClass="errorMessage" />
 
-                <h:outputText value="#{labels.labelStaffMemberPhoneNr}" styleClass="caption" />
+                <h:outputLabel for="phoneNr" value="#{labels.labelStaffMemberPhoneNr}" />
                 <h:inputText value="#{staffMemberController.instance.phoneNr}" id="phoneNr" />
                 <h:message for="phoneNr" styleClass="errorMessage" />
 
-                <h:outputText value="#{labels.labelStaffMemberCellPhpneNr}" styleClass="caption" />
+                <h:outputLabel for="cellPhoneNr" value="#{labels.labelStaffMemberCellPhpneNr}" />
                 <h:inputText value="#{staffMemberController.instance.cellPhoneNr}" id="cellPhoneNr" />
                 <h:message for="cellPhoneNr" styleClass="errorMessage" />
 
             </h:panelGrid>
             <br />
             <br />
-            <h:commandButton value="Save" action="#{staffMemberController.save}"/>
+            <h:commandButton value="#{labels.buttonStaffMemberSave}" action="#{staffMemberController.save}"/>
             <h:outputText value=" "/>
-            <h:commandButton value="Cancel" action="#{staffMemberController.cancel}"
+            <h:commandButton value="#{labels.buttonStaffMemberCancel}" action="#{staffMemberController.cancel}"
                              immediate="true" />
         </h:form>
     </ui:define>

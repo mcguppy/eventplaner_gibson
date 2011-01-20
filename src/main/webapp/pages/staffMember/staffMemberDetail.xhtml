@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                template="/WEB-INF/templates/template.xhtml">
+    <ui:define name="content">
+        <f:metadata>
+            <f:viewParam name="id" value="#{staffMemberController.id}" />
+        </f:metadata>
+
+        <h:form>
+            <h:panelGrid columns="2">
+                
+                <h:outputLabel value="#{labels.labelStaffMemberTitle}" for="title" />
+                <h:outputText value="#{staffMemberController.instance.title}" id="title" />
+
+                <h:outputLabel for="firstName" value="#{labels.labelStaffMemberFirstName}" styleClass="caption" />
+                <h:outputText value="#{staffMemberController.instance.firstName}" id="firstName" />
+
+                <h:outputLabel for="lastName" value="#{labels.labelStaffMemberLastName}" styleClass="caption" />
+                <h:outputText value="#{staffMemberController.instance.lastName}" id="lastName" />
+
+                <h:outputLabel for="street" value="#{labels.labelStaffMemberStreet}" styleClass="caption" />
+                <h:outputText value="#{staffMemberController.instance.street}" id="street" />
+
+                <h:outputLabel for="zip" value="#{labels.labelStaffMemberZip}" styleClass="caption" />
+                <h:outputText value="#{staffMemberController.instance.zip}" id="zip" />
+
+                <h:outputLabel for="city" value="#{labels.labelStaffMemberCity}" styleClass="caption" />
+                <h:outputText value="#{staffMemberController.instance.city}" id="city" />
+
+                <h:outputLabel for="mailAddress" value="#{labels.labelStaffMemberMailAddress}" styleClass="caption" />
+                <h:outputText value="#{staffMemberController.instance.mailAddress}" id="mailAddress" />
+
+                <h:outputLabel for="phoneNr" value="#{labels.labelStaffMemberPhoneNr}" styleClass="caption" />
+                <h:outputText value="#{staffMemberController.instance.phoneNr}" id="phoneNr" />
+
+                <h:outputLabel for="cellPhoneNr" value="#{labels.labelStaffMemberCellPhpneNr}" styleClass="caption" />
+                <h:outputText value="#{staffMemberController.instance.cellPhoneNr}" id="cellPhoneNr" />
+
+            </h:panelGrid>
+            <br />
+            <br />
+        </h:form>
+    </ui:define>
+</ui:composition>

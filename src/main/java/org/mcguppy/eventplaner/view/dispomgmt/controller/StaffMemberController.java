@@ -17,7 +17,7 @@ public class StaffMemberController implements Serializable {
 
     @EJB
     StaffMemberService service;
-    private Long id;
+    private Integer id;
     private StaffMember instance;
     @Inject
     private Conversation conversation;
@@ -33,11 +33,11 @@ public class StaffMemberController implements Serializable {
         return instance;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
