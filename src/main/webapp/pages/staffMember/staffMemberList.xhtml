@@ -4,11 +4,12 @@
                 xmlns:f="http://java.sun.com/jsf/core"
                 xmlns:h="http://java.sun.com/jsf/html"
                 template="/WEB-INF/templates/template.xhtml">
+
+    <ui:define name="control-panel-top">
+            <h:commandButton action="staffMemberCreate.jsf" value="#{labels.buttonStaffMemberCreateNew}" />
+    </ui:define>
     <ui:define name="content">
         <div class="panel">
-            <h:form>
-                <h:commandButton action="staffMemberCreate.jsf" value="#{labels.buttonStaffMemberCreateNew}" />
-            </h:form>
             <div class="contentBox">
                 <h:dataTable value="#{staffMembers}" var="v_staffMember" styleClass="dataTable">
 

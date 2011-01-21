@@ -14,35 +14,40 @@
                 <h1>eventplaner</h1>
             </h:panelGroup>
             <h:panelGroup id="container" layout="block">
-                <!--
-                <h:panelGroup id="sidebar" layout="block">
-                    <h1>Sidebar</h1> Content for the sidebar goes here
-                </h:panelGroup>
-                -->
-                <h:panelGroup id="navigation" layout="block">
-                    <ui:insert name="navigation">
-                        <h:form>
+                <h:form>
+                    <h:panelGroup id="navigation" layout="block">
+                        <ui:insert name="navigation">
                             <h:commandButton action="/pages/home.xhtml" value="#{labels.buttonMainIndex}" immediate="true" />
                             <h:outputText value=" "/>
                             <h:commandButton action="/pages/staffMember/staffMemberList.xhtml" value="#{labels.buttonStaffMemberList}"/>
                             <h:outputText value=" "/>
                             <h:commandButton action="/pages/location/locationList.xhtml" value="#{labels.buttonLocationList}"/>
-                        </h:form>
-                    </ui:insert>
-                </h:panelGroup>
-                <h:panelGroup id="messages" layout="block">
-                    <ui:insert name="messages">
-                        <h:panelGroup id="messagePanel" layout="block">
+                        </ui:insert>
+                    </h:panelGroup>
+
+                    <h:panelGroup id="messages" layout="block">
+                        <ui:insert name="messages">
                             <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
-                        </h:panelGroup>
-                    </ui:insert>
-                </h:panelGroup>
-                <h:panelGroup id="content" layout="block">
-                    <ui:insert name="content">Main Content</ui:insert>
-                </h:panelGroup>
+                        </ui:insert>
+                    </h:panelGroup>
+
+                    <h:panelGroup id="control-panel-top" layout="block">
+                        <ui:insert name="control-panel-top" />
+                    </h:panelGroup>
+
+                    <h:panelGroup id="content" layout="block">
+                        <ui:insert name="content">Main Content</ui:insert>
+                    </h:panelGroup>
+
+                    <h:panelGroup id="control-panel-bottom" layout="block">
+                        <ui:insert name="control-panel-bottom" />
+                    </h:panelGroup>
+                </h:form>
             </h:panelGroup>
-            <h:panelGroup id="footer" layout="block"><br/>Open Source project of Stefan Meichtry. <br/>
-                Thanks to the <a href="http://origo.ethz.ch/">Origo</a> team of ETH Zuerich for hosting <a href="http://eventplaner.origo.ethz.ch/">this project</a></h:panelGroup>
+
+            <h:panelGroup id="footer" layout="block">
+                <br/>Open Source project of Stefan Meichtry.
+            </h:panelGroup>
         </h:panelGroup>
     </h:body>
 </html>
