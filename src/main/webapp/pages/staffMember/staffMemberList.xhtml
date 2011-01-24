@@ -6,7 +6,7 @@
                 template="/WEB-INF/templates/template.xhtml">
 
     <ui:define name="control-panel-top">
-            <h:commandButton action="staffMemberCreate.jsf" value="#{labels.buttonStaffMemberCreateNew}" />
+        <h:commandButton action="staffMemberCreate.jsf" value="#{labels.buttonStaffMemberCreateNew}" />
     </ui:define>
     <ui:define name="content">
         <div class="panel">
@@ -17,7 +17,8 @@
                         <f:facet name="header">
                             <h:outputText value="#{labels.tableStaffMemberLastName}"/>
                         </f:facet>
-                        <h:outputText value="#{v_staffMember.lastName}" />
+                        <h:link outcome="staffMemberDetail.jsf?id=#{v_staffMember.id}"
+                                value="#{v_staffMember.lastName}"/>
                     </h:column>
 
                     <h:column>

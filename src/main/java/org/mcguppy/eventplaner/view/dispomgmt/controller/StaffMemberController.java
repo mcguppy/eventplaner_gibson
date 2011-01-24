@@ -2,14 +2,18 @@ package org.mcguppy.eventplaner.view.dispomgmt.controller;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.ResourceBundle;
 import javax.ejb.EJB;
 import javax.enterprise.context.Conversation;
 import javax.enterprise.context.ConversationScoped;
 import javax.enterprise.inject.Produces;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 import org.mcguppy.eventplaner.business.dispomgmt.boundary.StaffMemberService;
 import org.mcguppy.eventplaner.business.dispomgmt.domain.StaffMember;
+import org.mcguppy.eventplaner.jsf.util.JsfUtil;
 
 @Named
 @ConversationScoped
@@ -63,6 +67,8 @@ public class StaffMemberController implements Serializable {
             service.edit(instance);
         } else {
             service.create(instance);
+            String msg = ResourceBundle.getBundle("/Messages").getString("infoStaffMemberCreated");
+            JsfUtil.addSuccessMessage(msg);
         }
         conversation.end();
         return "saved";
