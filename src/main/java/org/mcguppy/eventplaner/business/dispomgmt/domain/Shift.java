@@ -2,6 +2,7 @@ package org.mcguppy.eventplaner.business.dispomgmt.domain;
 
 import java.util.Collection;
 import java.util.Date;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
@@ -17,16 +18,21 @@ import javax.validation.constraints.NotNull;
  * @author stefan meichtry
  */
 @Entity
-@Table(name="shift")
+@Table(name = "SHIFT")
 public class Shift extends MyEntityBase implements Comparable {
+
     @NotNull
-    private int staffNr;
+    @Column(name = "REQUIRED_STAFF_NUMBER")
+    private int requiredStaffNumber;
     @NotNull
     @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "START_TIME")
     private Date startTime;
     @NotNull
     @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "END_TIME")
     private Date endTime;
+    @Column(name = "DESCRIPTION")
     private String description;
     @ManyToOne
     @JoinColumn
@@ -35,7 +41,7 @@ public class Shift extends MyEntityBase implements Comparable {
     @ManyToMany(fetch = FetchType.LAZY)
     Collection<StaffMember> staffMembers;
     @ManyToOne
-    private StaffMember responsible;
+    private StaffMember responsibleStaffMember;
 
     public String getDescription() {
         return description;
@@ -62,13 +68,17 @@ public class Shift extends MyEntityBase implements Comparable {
     }
 
     public int getStaffNr() {
-        return staffNr;
+        return requiredStaffNumber;
     }
 
-    public void setStaffNr(int staffNr) {
-        this.staffNr = staffNr;
+    public void setRequiredStaffNumber(int staffNr) {
+        this.requiredStaffNumber = staffNr;
     }
 
+    public int getRequiredStaffNumber() {
+        return requiredStaffNumber;
+    }
+   
     public Collection<StaffMember> getStaffMembers() {
         return staffMembers;
     }
@@ -89,12 +99,12 @@ public class Shift extends MyEntityBase implements Comparable {
         this.startTime = startTime;
     }
 
-    public StaffMember getResponsible() {
-        return responsible;
+    public StaffMember getResponsibleStaffMember() {
+        return responsibleStaffMember;
     }
 
-    public void setResponsible(StaffMember responsible) {
-        this.responsible = responsible;
+    public void setResponsibleStaffMember(StaffMember responsible) {
+        this.responsibleStaffMember = responsible;
     }
 
     @Override

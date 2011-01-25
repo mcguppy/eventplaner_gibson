@@ -66,7 +66,7 @@ public class StaffMemberService extends CrudBaseService<StaffMember> {
         }
 
         for (Shift responsibleShift : staffMember.getResponsibleShifts()) {
-            responsibleShift.setResponsible(staffMember);
+            responsibleShift.setResponsibleStaffMember(staffMember);
             responsibleShift = em.merge(responsibleShift);
         }
     }
@@ -106,7 +106,7 @@ public class StaffMemberService extends CrudBaseService<StaffMember> {
 
         for (Shift shiftCollectionNewResponsibleShift : responsibleShiftCollectionNew) {
             if (!responsibleShiftCollectionOld.contains(shiftCollectionNewResponsibleShift)) {
-                shiftCollectionNewResponsibleShift.setResponsible(staffMember);
+                shiftCollectionNewResponsibleShift.setResponsibleStaffMember(staffMember);
                 shiftCollectionNewResponsibleShift = em.merge(shiftCollectionNewResponsibleShift);
             }
         }
@@ -130,7 +130,7 @@ public class StaffMemberService extends CrudBaseService<StaffMember> {
         }
 
         for (Shift responsibleShiftToRemoveStaffMember : persistentStaffMember.getResponsibleShifts()) {
-            responsibleShiftToRemoveStaffMember.setResponsible(null);
+            responsibleShiftToRemoveStaffMember.setResponsibleStaffMember(null);
             em.merge(responsibleShiftToRemoveStaffMember);
         }
         em.remove(persistentStaffMember);

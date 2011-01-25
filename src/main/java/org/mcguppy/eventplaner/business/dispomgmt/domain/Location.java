@@ -1,6 +1,7 @@
 package org.mcguppy.eventplaner.business.dispomgmt.domain;
 
 import java.util.Collection;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
@@ -12,10 +13,13 @@ import javax.validation.constraints.NotNull;
  * @author stefan meichtry
  */
 @Entity
-@Table(name="location")
+@Table(name = "location")
 public class Location extends MyEntityBase implements Comparable {
+
     @NotNull
+    @Column(name = "LOCATION_NAME")
     private String locationName;
+    @Column(name = "DESCRIPTION")
     private String description;
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "location")
     private Collection<Shift> shifts;
@@ -78,7 +82,7 @@ public class Location extends MyEntityBase implements Comparable {
 
     @Override
     public int compareTo(Object o) {
-         Location location = (Location) o;
+        Location location = (Location) o;
         return this.locationName.compareTo(location.locationName);
     }
 }

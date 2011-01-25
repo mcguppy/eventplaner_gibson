@@ -19,32 +19,33 @@ import javax.persistence.Version;
  */
 @MappedSuperclass
 public class MyEntityBase implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID")
     private Integer id;
     @Version
+    @Column(name = "VERSION")
     private long version;
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name="CREATE_DATE")
+    @Column(name = "CREATE_DATE")
     private Date createDate;
-    @Column(name="CREATOR_NAME")
+    @Column(name = "CREATOR_NAME")
     private String creatorName;
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name="MODIFIED_DATE")
+    @Column(name = "MODIFIED_DATE")
     private Date modifiedDate;
-    @Column(name="MODIFIER_NAME")
+    @Column(name = "MODIFIER_NAME")
     private String modifierName;
-    
 
     public Integer getId() {
         return id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
+//    public void setId(Integer id) {
+//        this.id = id;
+//    }
     public long getVersion() {
         return version;
     }
@@ -85,18 +86,16 @@ public class MyEntityBase implements Serializable {
         this.modifierName = modifierName;
     }
 
-    	@PrePersist
-	public void initTimeStamps() {
-		if (createDate == null) {
-			createDate = new Date();
-		}
-		modifiedDate = createDate;
-	}
+    @PrePersist
+    public void initTimeStamps() {
+        if (createDate == null) {
+            createDate = new Date();
+        }
+        modifiedDate = createDate;
+    }
 
-	@PreUpdate
-	public void updateTimeStamp() {
-		modifiedDate = new Date();
-	}
-    
-    
+    @PreUpdate
+    public void updateTimeStamp() {
+        modifiedDate = new Date();
+    }
 }

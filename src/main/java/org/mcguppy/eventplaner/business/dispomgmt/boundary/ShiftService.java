@@ -46,10 +46,10 @@ public class ShiftService extends CrudBaseService<Shift> {
             shift.setLocation(location);
         }
 
-        if (null != shift.getResponsible()) {
-            StaffMember responsible = shift.getResponsible();
+        if (null != shift.getResponsibleStaffMember()) {
+            StaffMember responsible = shift.getResponsibleStaffMember();
             responsible = em.getReference(responsible.getClass(), responsible.getId());
-            shift.setResponsible(responsible);
+            shift.setResponsibleStaffMember(responsible);
         }
 
         List<StaffMember> attachedStaffMemberCollection = new ArrayList<StaffMember>();
@@ -65,8 +65,8 @@ public class ShiftService extends CrudBaseService<Shift> {
             location = em.merge(location);
         }
 
-        if (null != shift.getResponsible()) {
-            StaffMember responsible = shift.getResponsible();
+        if (null != shift.getResponsibleStaffMember()) {
+            StaffMember responsible = shift.getResponsibleStaffMember();
             responsible.getResponsibleShifts().add(shift);
             responsible = em.merge(responsible);
         }
@@ -95,15 +95,15 @@ public class ShiftService extends CrudBaseService<Shift> {
         StaffMember responsibleNew = null;
         boolean shifResponsibleChanged = false;
 
-        if (null != shift.getResponsible()) {
-            responsibleNew = em.getReference(shift.getResponsible().getClass(), shift.getResponsible().getId());
+        if (null != shift.getResponsibleStaffMember()) {
+            responsibleNew = em.getReference(shift.getResponsibleStaffMember().getClass(), shift.getResponsibleStaffMember().getId());
             if (!shift.getStaffMembers().contains(responsibleNew)) {    // make sure, the responsibl is also a shift staffMember
                 responsibleNew = null;
             }
         }
 
-        if (null != persistentShift.getResponsible()) {
-            responsibleOld = persistentShift.getResponsible();
+        if (null != persistentShift.getResponsibleStaffMember()) {
+            responsibleOld = persistentShift.getResponsibleStaffMember();
         }
 
         if (null != responsibleNew && null != responsibleOld) {   // old and new shift has a responsible
@@ -127,7 +127,7 @@ public class ShiftService extends CrudBaseService<Shift> {
             shifResponsibleChanged = true;
         }
 
-        shift.setResponsible(responsibleNew);
+        shift.setResponsibleStaffMember(responsibleNew);
 
         shift = em.merge(shift);
 
@@ -167,8 +167,8 @@ public class ShiftService extends CrudBaseService<Shift> {
         }
 
 
-        if (null != shift.getResponsible()) {
-            StaffMember responsible = persistentShift.getResponsible();
+        if (null != shift.getResponsibleStaffMember()) {
+            StaffMember responsible = persistentShift.getResponsibleStaffMember();
             if (responsible.getResponsibleShifts().contains(persistentShift)) {
                 responsible.getResponsibleShifts().remove(persistentShift);
                 em.persist(responsible);

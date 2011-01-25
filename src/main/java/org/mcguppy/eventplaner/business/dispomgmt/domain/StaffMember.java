@@ -1,13 +1,12 @@
 package org.mcguppy.eventplaner.business.dispomgmt.domain;
 
 import java.util.Collection;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
@@ -18,34 +17,43 @@ import org.hibernate.validator.constraints.Email;
  * @author stefan meichtry
  */
 @Entity
-@Table(name = "staffmember")
+@Table(name = "STAFFMEMBER")
 public class StaffMember extends MyEntityBase implements Comparable {
 
     @NotNull(message = "{org.mcguppy.constraints.NotNull.message}")
+    @Column(name = "TITLE")
     private String title;
     @NotNull(message = "{org.mcguppy.constraints.NotNull.message}")
     @Size(min = 2, max = 50, message = "{org.mcguppy.constraints.Size.message}")
+    @Column(name = "FIRST_NAME")
     private String firstName;
     @NotNull(message = "{org.mcguppy.constraints.NotNull.message}")
     @Size(min = 2, max = 50, message = "{org.mcguppy.constraints.Size.message}")
+    @Column(name = "LAST_NAME")
     private String lastName;
     @Size(max = 50, message = "{org.mcguppy.constraints.Size.Max.message}")
+    @Column(name = "STREET")
     private String street;
     @NotNull(message = "{org.mcguppy.constraints.NotNull.message}")
     @Pattern(regexp = "[0-9]{4}", message = "{org.mcguppy.constraints.Zip.message}")
+    @Column(name = "ZIP_CODE")
     private String zip;
     @NotNull(message = "{org.mcguppy.constraints.NotNull.message}")
     @Size(min = 2, max = 50, message = "{org.mcguppy.constraints.Size.message}")
+    @Column(name = "CITY")
     private String city;
     @Pattern(regexp = "[0-9]{3}[ ]?[0-9]{3}[ ]?[0-9]{2}[ ]?[0-9]{2}", message = "{org.mcguppy.constraints.PhoneNumber.message}")
+    @Column(name = "PHONE_NUMBER")
     private String phoneNr;
     @Pattern(regexp = "[0-9]{3}[ ]?[0-9]{3}[ ]?[0-9]{2}[ ]?[0-9]{2}", message = "{org.mcguppy.constraints.PhoneNumber.message}")
+    @Column(name = "CELL_PHONE_NUMBER")
     private String cellPhoneNr;
     @Email(message = "{org.mcguppy.constraints.Mail.message}")
+    @Column(name = "MAIL_ADDRESS")
     private String mailAddress;
     @ManyToMany(fetch = FetchType.LAZY, mappedBy = "staffMembers")
     private Collection<Shift> shifts;
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "responsible")
+    @OneToMany(mappedBy = "responsibleStaffMember")
     private Collection<Shift> responsibleShifts;
 
     public String getCellPhoneNr() {
