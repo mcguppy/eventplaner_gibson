@@ -65,6 +65,8 @@ public class StaffMemberController implements Serializable {
     public String save() {
         if (isManaged()) {
             service.edit(instance);
+            String msg = ResourceBundle.getBundle("/Messages").getString("infoStaffMemberUpdated");
+            JsfUtil.addSuccessMessage(msg);
         } else {
             service.create(instance);
             String msg = ResourceBundle.getBundle("/Messages").getString("infoStaffMemberCreated");

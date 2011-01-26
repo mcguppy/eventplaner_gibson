@@ -7,7 +7,10 @@
     <ui:define name="content">
         <f:metadata>
             <f:viewParam name="id" value="#{staffMemberController.id}" />
+             <f:event type="preRenderView"
+                     listener="#{staffMemberController.initConversation}" />
         </f:metadata>
+        
         <h:panelGrid columns="2">
 
             <h:outputLabel value="#{labels.labelStaffMemberTitle}" for="title" />
