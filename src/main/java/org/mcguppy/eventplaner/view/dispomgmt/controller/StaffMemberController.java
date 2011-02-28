@@ -7,8 +7,6 @@ import javax.ejb.EJB;
 import javax.enterprise.context.Conversation;
 import javax.enterprise.context.ConversationScoped;
 import javax.enterprise.inject.Produces;
-import javax.faces.application.FacesMessage;
-import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 import org.mcguppy.eventplaner.business.dispomgmt.boundary.StaffMemberService;
@@ -60,6 +58,13 @@ public class StaffMemberController implements Serializable {
 
     public boolean isManaged() {
         return getInstance().getId() != null;
+    }
+
+    public String listSetup() {
+        if (!conversation.isTransient()) {
+            conversation.end();
+        }
+        return "staffMemberList";
     }
 
     public String save() {

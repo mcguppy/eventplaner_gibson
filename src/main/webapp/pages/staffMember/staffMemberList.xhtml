@@ -4,14 +4,11 @@
                 xmlns:f="http://java.sun.com/jsf/core"
                 xmlns:h="http://java.sun.com/jsf/html"
                 template="/WEB-INF/templates/template.xhtml">
-
-    <ui:define name="control-panel-top">
-        <h:commandButton action="staffMemberCreate.jsf" value="#{labels.buttonStaffMemberCreateNew}" />
-    </ui:define>
     <ui:define name="content">
+        <h1>Personen-Liste</h1>
         <div class="panel">
             <div class="contentBox">
-                <h:dataTable value="#{staffMembers}" var="v_staffMember" styleClass="dataTable">
+                <h:dataTable value="#{staffMembers}" var="v_staffMember" styleClass="dataTable" rowClasses="odd,even">
 
                     <h:column>
                         <f:facet name="header">
@@ -39,5 +36,9 @@
                 </h:dataTable>
             </div>
         </div>
+    </ui:define>
+
+    <ui:define name="control-panel-bottom">
+        <h:commandButton action="staffMemberCreate.jsf" value="#{labels.buttonStaffMemberCreateNew}" />
     </ui:define>
 </ui:composition>

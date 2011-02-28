@@ -19,9 +19,9 @@
                         <ui:insert name="navigation">
                             <h:commandButton action="/pages/home.xhtml" value="#{labels.buttonMainIndex}" immediate="true" />
                             <h:outputText value=" "/>
-                            <h:commandButton action="/pages/staffMember/staffMemberList.xhtml" value="#{labels.buttonStaffMemberList}"/>
+                            <h:commandButton action="#{staffMemberController.listSetup}" value="#{labels.buttonStaffMemberList}" immediate="true" />
                             <h:outputText value=" "/>
-                            <h:commandButton action="/pages/location/locationList.xhtml" value="#{labels.buttonLocationList}"/>
+                            <h:commandButton action="/pages/location/locationList.xhtml" value="#{labels.buttonLocationList}" immediate="true" />
                         </ui:insert>
                     </h:panelGroup>
 
