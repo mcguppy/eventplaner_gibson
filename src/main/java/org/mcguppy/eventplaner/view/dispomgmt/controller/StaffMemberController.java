@@ -61,10 +61,8 @@ public class StaffMemberController implements Serializable {
     }
 
     public String listSetup() {
-        if (!conversation.isTransient()) {
-            conversation.end();
-        }
-        return "staffMemberList";
+        this.endConversation();
+        return "list";
     }
 
     public String save() {
@@ -81,9 +79,21 @@ public class StaffMemberController implements Serializable {
         return "saved";
     }
 
+    public String destroySetup() {
+        String msg = ResourceBundle.getBundle("/Messages").getString("warnStaffMemberDestroy");
+        JsfUtil.addWarnMessage(msg);
+        return "confirm";
+    }
+
     public String cancel() {
-        conversation.end();
         return "cancelled";
+    }
+
+    public String endConversation() {
+        if (!conversation.isTransient()) {
+            conversation.end();
+        }
+        return "endConversation";
     }
 
     public void initConversation() {

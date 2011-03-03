@@ -3,11 +3,12 @@
     <Scope Scope="Faces Configuration Only"/>
     <Scope Scope="Project">
         <Node id="pages/home.xhtml" x="150" y="150" zoom="true"/>
-        <Node id="pages/location/locationList.xhtml" x="650" y="150" zoom="true"/>
+        <Node id="pages/location/locationList.xhtml" x="709" y="117" zoom="true"/>
         <Node id="pages/staffMember/staffMemberList.xhtml" x="149" y="300" zoom="true"/>
         <Node id="pages/staffMember/staffMemberDetail.xhtml" x="400" y="150" zoom="true"/>
+        <Node id="pages/staffMember/staffMemberDestroy.xhtml" x="471" y="376" zoom="true"/>
         <Node id="pages/staffMember/staffMemberEdit.xhtml" x="150" y="300" zoom="true"/>
-        <Node id="pages/staffMember/staffMemberCreate.xhtml" x="372" y="83" zoom="true"/>
+        <Node id="pages/staffMember/staffMemberCreate.xhtml" x="-299" y="195" zoom="true"/>
     </Scope>
     <Scope Scope="All Faces Configurations"/>
 </Scene>

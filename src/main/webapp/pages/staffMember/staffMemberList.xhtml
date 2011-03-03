@@ -7,34 +7,32 @@
     <ui:define name="content">
         <h1>Personen-Liste</h1>
         <div class="panel">
-            <div class="contentBox">
-                <h:dataTable value="#{staffMembers}" var="v_staffMember" styleClass="dataTable" rowClasses="odd,even">
+            <h:dataTable value="#{staffMembers}" var="v_staffMember" styleClass="dataTable" rowClasses="odd,even">
 
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="#{labels.tableStaffMemberLastName}"/>
-                        </f:facet>
-                        <h:link outcome="staffMemberDetail.jsf?id=#{v_staffMember.id}"
-                                value="#{v_staffMember.lastName}"/>
-                    </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="#{labels.tableStaffMemberLastName}"/>
+                    </f:facet>
+                    <h:link outcome="staffMemberDetail.jsf?id=#{v_staffMember.id}"
+                            value="#{v_staffMember.lastName}"/>
+                </h:column>
 
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="#{labels.tableStaffMemberFirstName}"/>
-                        </f:facet>
-                        <h:link outcome="staffMemberDetail.jsf?id=#{v_staffMember.id}" 
-                                value="#{v_staffMember.firstName}"/>
-                    </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="#{labels.tableStaffMemberFirstName}"/>
+                    </f:facet>
+                    <h:link outcome="staffMemberDetail.jsf?id=#{v_staffMember.id}"
+                            value="#{v_staffMember.firstName}"/>
+                </h:column>
 
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="#{labels.tableStaffMemberCity}"/>
-                        </f:facet>
-                        <h:outputText value="#{v_staffMember.city}" />
-                    </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="#{labels.tableStaffMemberCity}"/>
+                    </f:facet>
+                    <h:outputText value="#{v_staffMember.city}" />
+                </h:column>
 
-                </h:dataTable>
-            </div>
+            </h:dataTable>
         </div>
     </ui:define>
 

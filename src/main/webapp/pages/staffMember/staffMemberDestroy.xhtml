@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:f="http://java.sun.com/jsf/core"
@@ -8,13 +6,6 @@
                 template="/WEB-INF/templates/template.xhtml">
 
     <ui:define name="content">
-        <f:metadata>
-            <f:event type="preRenderView"
-                     listener="#{staffMemberController.initConversation}" />
-            
-            <f:viewParam name="id" value="#{staffMemberController.id}" />
-        </f:metadata>
-
         <h:panelGrid columns="2">
 
             <h:outputLabel value="#{labels.labelStaffMemberTitle}" for="title" />
@@ -48,8 +39,8 @@
     </ui:define>
 
     <ui:define name="control-panel-bottom">
-        <h:commandButton action="staffMemberEdit.jsf" value="#{labels.buttonStaffMemberEdit}" />
+        <h:commandButton action="#{staffMemberController.delete}" value="#{labels.buttonStaffMemberDestroyYes}" />
         <h:outputText value=" "/>
-        <h:commandButton action="#{staffMemberController.destroySetup}" value="#{labels.buttonStaffMemberDestroy}" />
+        <h:commandButton action="#{staffMemberController.cancel}" immediate="true" value="#{labels.buttonStaffMemberDestroyNo}" />
     </ui:define>
 </ui:composition>

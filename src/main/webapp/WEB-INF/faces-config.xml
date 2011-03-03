@@ -30,12 +30,12 @@
             <to-view-id>/pages/staffMember/staffMemberList.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
-            <from-outcome>cancelled</from-outcome>
+            <from-outcome>endConversation</from-outcome>
             <to-view-id>/pages/staffMember/staffMemberList.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
 
-        <navigation-rule>
+    <navigation-rule>
         <from-view-id>/pages/staffMember/staffMemberEdit.xhtml</from-view-id>
         <navigation-case>
             <from-outcome>saved</from-outcome>
@@ -49,7 +49,27 @@
     
     <navigation-rule>
         <navigation-case>
-            <from-outcome>staffMemberList</from-outcome>
+            <from-outcome>list</from-outcome>
+            <to-view-id>/pages/staffMember/staffMemberList.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <from-view-id>/pages/staffMember/staffMemberDetail.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>confirm</from-outcome>
+            <to-view-id>/pages/staffMember/staffMemberDestroy.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <from-view-id>/pages/staffMember/staffMemberDestroy.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>cancelled</from-outcome>
+            <to-view-id>/pages/staffMember/staffMemberDetail.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>deleted</from-outcome>
             <to-view-id>/pages/staffMember/staffMemberList.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>

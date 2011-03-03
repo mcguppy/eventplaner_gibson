@@ -21,13 +21,14 @@
                             <h:outputText value=" "/>
                             <h:commandButton action="#{staffMemberController.listSetup}" value="#{labels.buttonStaffMemberList}" immediate="true" />
                             <h:outputText value=" "/>
+                            <!-- //todo: change this to locationController.listSetup as soon as implemented -->
                             <h:commandButton action="/pages/location/locationList.xhtml" value="#{labels.buttonLocationList}" immediate="true" />
                         </ui:insert>
                     </h:panelGroup>
 
                     <h:panelGroup id="messages" layout="block">
                         <ui:insert name="messages">
-                            <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                            <h:messages errorStyle="color: red" warnStyle="color: orange" infoStyle="color: green" layout="table"/>
                         </ui:insert>
                     </h:panelGroup>
 

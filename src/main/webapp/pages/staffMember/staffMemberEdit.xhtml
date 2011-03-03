@@ -8,10 +8,6 @@
     <ui:define name="messages" /> <!-- no messages here -->
 
     <ui:define name="content">
-        <f:metadata>
-            <f:event type="preRenderView"
-                     listener="#{staffMemberController.initConversation}" />
-        </f:metadata>
         <h:panelGrid columns="3">
             <h:outputLabel value="#{labels.labelStaffMemberTitle}" for="title" />
             <h:selectOneMenu id="title" value="#{staffMemberController.instance.title}" title="#{labels.labelStaffMemberTitle}" >

@@ -12,6 +12,7 @@
             <f:event type="preRenderView"
                      listener="#{staffMemberController.initConversation}" />
         </f:metadata>
+        
         <h:panelGrid columns="3">
             <h:outputLabel value="#{labels.labelStaffMemberTitle}" for="title" />
             <h:selectOneMenu id="title" value="#{staffMemberController.instance.title}" title="#{labels.labelStaffMemberTitle}" >
@@ -58,7 +59,6 @@
     <ui:define name="control-panel-bottom">
         <h:commandButton value="#{labels.buttonStaffMemberSave}" action="#{staffMemberController.save}"/>
         <h:outputText value=" "/>
-        <h:commandButton value="#{labels.buttonStaffMemberCancel}" action="#{staffMemberController.cancel}"
-                         immediate="true" />
+        <h:commandButton value="#{labels.buttonStaffMemberCancel}" action="#{staffMemberController.endConversation}" immediate="true" />
     </ui:define>
 </ui:composition>
