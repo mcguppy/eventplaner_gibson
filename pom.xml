@@ -20,12 +20,6 @@
             <name>JBoss Repository</name>
             <url>http://repository.jboss.org/maven2</url>
         </repository>
-        
-        <repository>
-            <id>maven2-repository.org.icefaces</id>
-            <name>ICEfaces Repository for Maven</name>
-            <url>http://anonsvn.icefaces.org/repo/maven2/snapshots/</url>
-        </repository>
 
     </repositories>
     <dependencies>
@@ -42,35 +36,6 @@
             <version>4.0.2.GA</version>
             <scope>provided</scope>
         </dependency>
-<!--
-        <dependency>
-            <groupId>org.icefaces</groupId>
-            <artifactId>icefaces</artifactId>
-            <version>2.0-Beta2</version>
-            <scope>compile</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.icefaces</groupId>
-            <artifactId>icefaces-ace</artifactId>
-            <version>2.0-Beta2</version>
-            <scope>compile</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.icefaces</groupId>
-            <artifactId>icefaces-compat</artifactId>
-            <version>2.0-Beta2</version>
-            <scope>compile</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.8</version>
-            <scope>test</scope>
-        </dependency>
-        -->
 
     </dependencies>
 
